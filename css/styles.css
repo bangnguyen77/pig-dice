@@ -1,18 +1,29 @@
 .jumbotron {
   background-color: orange;
-  color: blue;
+  color: white;
   text-align: center;
 }
 
-#show-contact {
-  display: none;
+#player1Score {
+  border: 1px solid green;
+  margin-bottom: 10px;
 }
 
-.contact {
-  cursor: pointer;
-  color: #0088cc;
+#player2Score {
+  border: 1px solid red;
+  margin: 10px 0px;
 }
 
-.contact:hover {
-  text-decoration: underline;
+#scoreBoard {
+  border: 1px solid blue;
+  margin: 10px 0px;
+}
+
+#player1Buttons {
+  border: 1px solid blue;
+  margin: 10px 0px;
+}
+
+#player2Buttons {
+  border: 1px solid blue;
 }

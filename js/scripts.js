@@ -1,82 +1,55 @@
-//business logic
-function Contact(first, last) {
-  this.firstName = first;
-  this.lastName = last;
-  this.addresses = [];
-}
+// business logic
+var player1Score = 0;
+var player2Score = 0;
 
-function Address(street, city, state) {
-  this.street = street;
-  this.city = city;
-  this.state = state;
-}
+// var player1Score = "0";
+// var player2Score = "0";
 
-Contact.prototype.fullName = function() {
-  return this.firstName + " " + this.lastName;
-}
+var totalScore = 0;
+// var player1Total = [];
+// var player2Total = [];
 
-Address.prototype.fullAddress = function() {
-  return this.street + ", " + this.city + ", " + this.state;
-}
-
-function resetFields() {
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+var diceRolls = function (roll) {
+  roll = parseInt(Math.floor(Math.random() * 6 + 1) ); // roll for random number
+  return roll;
 }
 
 // user interface logic
 $(document).ready(function() {
+  event.preventDefault();
 
-  $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state">' +
-                                 '</div>' +
-                               '</div>');
-  });
+  $("button#roll1").click(function() {
 
-  $("form#new-contact").submit(function(event) {
-    event.preventDefault();
-
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
-
-    $(".new-address").each(function() {
-      var inputtedStreet = $(this).find("input.new-street").val();
-      var inputtedCity = $(this).find("input.new-city").val();
-      var inputtedState = $(this).find("input.new-state").val();
-      var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState)
-      newContact.addresses.push(newAddress)
-    });
-
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
-
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
-      $("#show-contact h2").text(newContact.fullName());
-      $(".first-name").text(newContact.firstName);
-      $(".last-name").text(newContact.lastName);
-
-      $("ul#addresses").text("");
-      newContact.addresses.forEach(function(address) {
-        $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
-      });
-    });
-
-    resetFields();
+    $("#rollResult").text("");
+    rollResult = diceRolls();
+    $("#rollResult").append(rollResult + ", ");
+    if (rollResult != 1) {
+      var newTotalScore = parseInt(totalScore) + rollResult;
+      totalScore = newTotalScore;
+      $("turnResult").text(totalScore);
+    } else {
+      totalScore = 0;
+      $("turnResult").text(totalScore);
+      $("rollResult").text("You lose your turn");
+      $("player1Buttons").hide();
+      $("player2Buttons").show();
+    }
 
   });
+
+  $("button#hold1").click(function () {
+    player1Score = totalScore + parseInt(player1Score);
+    totalScore = 0;
+    if (player1Score >= 100) {
+      alert("Player 1 is the Winnder")
+    } else {
+      ("#rollResult").text(" ");
+      $("turnResult").text(" ");
+      $("player1").text(player1Score);
+      $("#player1Buttons").hide();
+      $("#player2Buttons").show();
+    }
+  });
+
+
 });
