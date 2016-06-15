@@ -2,7 +2,6 @@
 <html>
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.0.0.js"></script>
     <script src="js/scripts.js"></script>
@@ -23,15 +22,15 @@
       <h1>Let's play the game!</h1>
       <!-- <img src="img/dice.jpg" alt="a photo of a dice" id="diceImage" /> -->
 
-      <div id="player1Score">
-        <h3>Player 1 Score</h3>
+      <div class="player1Score">
+        <h3>Player 1 Score: <span id="player1Score"></span></h3>
         <div id="player1">
 
         </div>
       </div>
 
-      <div id="player2Score">
-        <h3>Player 2 Score</h3>
+      <div class="player2Score">
+        <h3>Player 2 Score: <span id="player2Score"></span></h3>
         <div id="player2">
 
         </div>
@@ -39,12 +38,12 @@
 
       <div id="scoreBoard">
         <h3>Rolls</h3>
-        <div id="rollResult">
-
+        <div>
+          <span id="rollResult"></span>
         </div>
-        <h3>Total Turns</h3>
-        <div id="turnResult">
-
+        <h3>Turns Total</h3>
+        <div>
+          <span id="turnResult"></span>
         </div>
       </div>
 
@@ -55,7 +54,7 @@
       </div>
 
       <div id="player2Buttons">
-        <h1>Player1</h1>
+        <h1>Player2</h1>
         <button  id="roll2" class="btn" type="submit">Roll</button>
         <button  id="hold2" class="btn" type="submit">Hold</button>
       </div>
