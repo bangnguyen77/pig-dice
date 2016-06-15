@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.0.0.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pig Dice Game</title>
+  </head>
+  <body>
+    <div class="jumbotron" >
+      <h1 class="text-center">Pig Dice Game</h1>
+      <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
+      If the player rolls a 1, they score nothing and it becomes the next player's turn.
+      If the player rolls any other number, it is added to their turn total and the player's turn continues.
+      If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+      The first player to score 100 or more points wins.
+      For example, the first player, Ann, begins a turn with a roll of 5. Ann could hold and score 5 points, but chooses to roll again. Ann rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Ann rolls a 1, and must end her turn without scoring. The next player, Bob, rolls the sequence 4-5-3-5-5, after which he chooses to hold, and adds his turn total of 22 points to his score.</p>
+    </div>
+    
+    <div class="container">
+      <h1></h1>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h2>Add a contact:</h2>
+          <form id="new-contact">
+            <div class="form-group">
+              <label for="new-first-name">First name</label>
+              <input type="text" class="form-control" id="new-first-name">
+            </div>
+            <div class="form-group">
+              <label for="new-last-name">Last name</label>
+              <input type="text" class="form-control" id="new-last-name">
+            </div>
+
+            <div id="new-addresses">
+              <div class="new-address">
+                <div class="form-group">
+                  <label for="new-street">Street</label>
+                  <input type="text" class="form-control new-street">
+                </div>
+                <div class="form-group">
+                  <label for="new-city">City</label>
+                  <input type="text" class="form-control new-city">
+                </div>
+                <div class="form-group">
+                  <label for="new-state">State</label>
+                  <input type="text" class="form-control new-state">
+                </div>
+              </div>
+            </div>
+
+            <span class="btn btn-primary" id="add-address">Another address</span>
+
+            <button type="submit" class="btn">Add</button>
+          </form>
+
+          <h2>Contacts:</h2>
+          <ul id="contacts">
+
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div id="show-contact">
+            <h2></h2>
+            <p>First name: <span class="first-name"></span></p>
+            <p>Last name: <span class="last-name"></span></p>
+            <p>Addresses:</p>
+            <ul id="addresses">
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
